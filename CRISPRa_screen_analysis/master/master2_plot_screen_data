@@ -1,0 +1,71 @@
+#!/bin/bash
+# Performs quality control and plots guide distribution/correlation.
+# Plots enrichment of CRISPR screen hits
+fastq_dir=''
+work_dir=$(pwd)'/'
+path=''
+
+help() {
+   echo "Performs plotting of CRISPR screen data."
+   echo
+   echo "Syntax: ./master2_quality_control.sh [-d|p|h]"
+   echo "options:"
+   echo "d     Provides working directory (Standard is current directory)."
+   echo "h     Prints this help."
+   echo "p     Provide path to /Gata_paper/CRISPRa_screen_analysis/. [mandatory]"
+   echo
+}
+
+parse_args() {
+    case "$1" in
+        -d)
+            work_dir="$2"
+            ;;
+        -p)
+            path="$2"
+            ;;
+        -h)
+            help
+            exit 0
+            ;;
+        *)
+            echo "Unknown or badly placed parameter '$1'." 1>&2
+            exit 1
+            ;;
+    esac
+}
+
+while [[ "$#" -ge 1 ]]; do
+    parse_args "$1" "$2"
+    shift; shift
+done
+
+if [[ $path == '' ]]
+then
+	echo -e "Please provide the path to /Gata_paper/CRISPRa_screen_analysis/ with -p"
+  exit 1
+fi
+
+
+
+work_dir=$(realpath $work_dir)'/'
+path=$(realpath $path)'/'
+
+
+# Plots log2 distribution width of the guides in the CRISPRa library
+echo -e "Plots distribution width of the CRISPRa library"
+Rscript ${path}scripts/Plot_guide_distribution.R ${work_dir} ${path}
+
+
+# Plots correlation of the samples in the CRISPRa library
+echo -e "Plots correlation between the different replicates"
+Rscript ${path}scripts/Plot_correlation.R ${work_dir} ${path}
+
+
+# Plots volcano plot of mageck mle data CRISPRa library
+echo -e "Plots volcano plot for mageck mle data"
+Rscript ${path}scripts/Plot_volcano.R ${work_dir} ${path}
+
+# Plots log2 foldchanges of the activators and repressors
+echo -e "Plots log2 foldchanges of the significant hits"
+Rscript ${path}scripts/Plot_guide_enrichment.R ${work_dir} ${path}

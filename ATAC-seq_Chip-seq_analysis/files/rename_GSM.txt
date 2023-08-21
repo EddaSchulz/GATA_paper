@@ -1,0 +1,8 @@
+Read 1	Read 2	Accession Number
+Wamaitha_GATA-OE_R1_1.fastq	Wamaitha_GATA-OE_R1_2.fastq	GSM1697711
+Wamaitha_Input_R1_1.fastq	Wamaitha_Input_R1_2.fastq	GSM1697712
+Wamaitha_GATA-OE_R2_1.fastq	Wamaitha_GATA-OE_R2_2.fastq	GSM1697713
+Wamaitha_Input_R2_1.fastq	Wamaitha_Input_R2_2.fastq	GSM1697714
+Wu_8-cell_ATAC_R1_1.fastq	Wu_8-cell_ATAC_R1_2.fastq	GSM1933928 
+Wu_8-cell_ATAC_R2_1.fastq	Wu_8-cell_ATAC_R2_2.fastq	GSM1933929 
+

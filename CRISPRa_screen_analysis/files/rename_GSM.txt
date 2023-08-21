@@ -1,0 +1,8 @@
+Read 1	Read 2	Accession Number
+R1_Unsorted.fastq	R1_Unsorted_2.fastq	GSM5825542
+R2_Unsorted.fastq	R2_Unsorted_2.fastq	GSM5825543
+R3_Unsorted.fastq			GSM5825544
+R1_Top.fastq	R1_Top_2.fastq		GSM5825545
+R2_Top.fastq	R2_Top_2.fastq		GSM5825546  
+R3_Top.fastq			GSM5825547  
+PlasmidLib.fastq	PlasmidLib_2.fastq	GSM5825548

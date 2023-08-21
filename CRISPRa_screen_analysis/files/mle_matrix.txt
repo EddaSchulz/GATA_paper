@@ -1,0 +1,7 @@
+samples	baseline	Top
+R3_Top	1	1
+R3_Unsorted	1	0
+R2_Top	1	1
+R2_Unsorted	1	0
+R1_Top	1	1
+R1_Unsorted	1	0
